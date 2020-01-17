@@ -22,25 +22,49 @@ API for admin
 --
 
 Url: /admin
-Method: POST
-Body: n/a
-Possible responses:
-	Code: 400
-	Body: {"StatusCode":403,"Message":"WebhookDebugger.Domain.Exceptions.OutOfHosts"}
 
-	Code: 200
-	Body: {"identification": " [Guid that can be used for test] "}
+Method: POST
+
+Body: n/a
+
+Possible responses:
+
+Code: 400
+Body:
+
+    {
+        "StatusCode":403,
+        "Message":"WebhookDebugger.Domain.Exceptions.OutOfHosts"
+    }
+
+Code: 200
+
+Body: 
+
+    {
+        "identification": "[Guid that can be used for test]"
+    }
 
 
 Url: /admin/{identification}
-Method: GET
-Body: n/a
-Possible responses:
-	Code: 400
-	Body: {"StatusCode":400,"Message":"WebhookDebugger.Domain.Exceptions.OutOfHosts"}
 
-	Code: 200
-	Body: 
+Method: GET
+
+Body: n/a
+
+Possible responses:
+
+Code: 400
+
+Body:
+
+    {
+           "StatusCode":400,
+           "Message":"WebhookDebugger.Domain.Exceptions.OutOfHosts"
+    }
+
+Code: 200
+Body: 
 
 	[
         {
@@ -63,8 +87,13 @@ API for test
 --
 
 Url: /
+
 Method: GET/PUT/POST/DELETE/OPTIONS
+
 Body: [as you see fit]
+
 Possible responses:
-	Code: 200
-	Body: n/a
+
+Code: 200
+
+Body: n/a
