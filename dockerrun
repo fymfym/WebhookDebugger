@@ -1,0 +1,14 @@
+#!/bin/bash
+rm -rf webhookdebugger
+git clone https://github.com/fymfym/webhookdebugger.git
+docker build -t webhookdebugger webhookdebugger/.
+
+docker stop webhookdebugger || :
+docker rm webhookdebugger || :
+
+docker run \
+        -d \
+        -p 4990:80 \
+        --name webhookdebugger \
+        -w /app \
+        webhookdebugger
