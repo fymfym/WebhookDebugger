@@ -6,7 +6,7 @@ Purpose
 
 Used to see whats send to a webhook in testing environments.
 
-This does not have a UI, but a REST API you can create a custoemr and query the last 4 items send to that customer.
+This does not have a UI, but a REST API you can create a custoemr and query the last 4 items send to that endpoint.
 
 Possible HTTP methids to use
 

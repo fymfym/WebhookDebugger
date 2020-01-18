@@ -20,6 +20,11 @@ namespace WebhookDebugger.Domain.Models
                         var task = reader.ReadToEndAsync();
                         Task.WaitAll(task);
                         Body = task.Result;
+                        ContentLength = Body.Length;
+                        if (Body != null && Body.Length > 100000)
+                        {
+                            Body = Body.Substring(0, 100000) + "##shortened##";
+                        }
                     }
 
                     break;
@@ -40,6 +45,7 @@ namespace WebhookDebugger.Domain.Models
         }
 
         public string QueryString { get; set; }
+        public long ContentLength { get; set; }
         public string Url { get; set; }
         public string Body { get; set; }
         public List<Header> Headers { get; set; }

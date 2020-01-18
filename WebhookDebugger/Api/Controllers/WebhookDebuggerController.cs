@@ -11,14 +11,14 @@ namespace WebhookDebugger.Api.Controllers
     public class WebhookDebuggerController : ControllerBase
     {
         private readonly ILogger<WebhookDebuggerController> _logger;
-        private readonly ICustomerService _customerService;
+        private readonly IEndpointService _endpointService;
 
         public WebhookDebuggerController(
             ILogger<WebhookDebuggerController> logger,
-            ICustomerService customerService)
+            IEndpointService endpointService)
         {
             _logger = logger;
-            _customerService = customerService;
+            _endpointService = endpointService;
         }
 
         [HttpGet]
@@ -59,9 +59,9 @@ namespace WebhookDebugger.Api.Controllers
 
         private IActionResult Handler(Guid identification)
         {
-            var customer = _customerService.GetCustomer(identification);
-            if (customer == null) return NotFound();
-            _customerService.AddCall(identification, new Call(HttpContext));
+            var endpoint = _endpointService.GetEndpoint(identification);
+            if (endpoint == null) return NotFound();
+            _endpointService.AddCall(identification, new Call(HttpContext));
             return Ok();
         }
     }

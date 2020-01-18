@@ -27,8 +27,8 @@ namespace WebhookDebugger
 
             services.AddCorrelationId();
 
-            services.AddSingleton<ICustomerService, CustomerService>();
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddSingleton<IEndpointService, EndpointService>();
+            services.AddTransient<IEndpointRepository, EndpointRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

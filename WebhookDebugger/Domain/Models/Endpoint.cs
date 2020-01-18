@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WebhookDebugger.Domain.Models
 {
-    public class Customer
+    public class Endpoint
     {
         public Guid Identification { get; set; }
         public DateTime CreatedAt { get; set; }

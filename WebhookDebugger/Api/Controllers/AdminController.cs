@@ -16,40 +16,37 @@ namespace WebhookDebugger.Api.Controllers
     public class AdminController : ControllerBase
     {
         private readonly ILogger<WebhookDebuggerController> _logger;
-        private readonly ICustomerService _customerService;
+        private readonly IEndpointService _endpointService;
 
         public AdminController(
             ILogger<WebhookDebuggerController> logger,
-            ICustomerService customerService
+            IEndpointService endpointService
             )
         {
             _logger = logger;
-            _customerService = customerService;
+            _endpointService = endpointService;
         }
 
         [HttpPost]
-        public Task<UserDto> Post()
+        public async Task<UserDto> Post()
         {
             var sender = HttpContext.Request.Host.Host;
-            var customer = _customerService.CreateCustomer(sender);
+            var endpoint = await _endpointService.CreateEndpoint(sender);
 
             var result = new UserDto
             {
-                Identification = customer.Identification
+                Identification = endpoint.Identification
             };
 
-            return Task.FromResult(result);
+            return result;
         }
 
         [HttpGet]
         [Route("{identification}")]
-        public Task<List<Call>> Get(Guid identification)
+        public async Task<List<Call>> Get(Guid identification)
         {
-            var customer = _customerService.GetCustomer(identification);
-            if (customer == null) return null;
-            var result = customer.Calls;
-            result.Reverse();
-            return Task.FromResult(result);
+            var calls = await _endpointService.GetCalls(identification);
+            return calls;
         }
     }
 }
