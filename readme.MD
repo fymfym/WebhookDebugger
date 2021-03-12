@@ -4,11 +4,11 @@
 Purpose
 --
 
-Used to see whats send to a webhook in testing environments.
+This API is used to see what is send to a webhook in testing environments.
 
-This does not have a UI, but a REST API you can create a custoemr and query the last 4 items send to that endpoint.
+There is no UI, only a REST API. Via the admin API you can create a custom endpoint and query the last 4 actions send to this endpoint.
 
-Possible HTTP methids to use
+Possible HTTP methods to use on the given endpoint
 
 * GET
 * OPTIONS
@@ -23,7 +23,7 @@ API for admin
 
 Url: /admin
 
-Method: POST
+Method: POST - create an endpoint
 
 Body: n/a
 
