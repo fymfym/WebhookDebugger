@@ -1,4 +1,6 @@
 using CorrelationId;
+using CorrelationId.Abstractions;
+using CorrelationId.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -42,13 +44,7 @@ namespace WebhookDebugger
             //app.UseHttpsRedirection();
             app.UseMiddleware<ExceptionLogging>();
 
-            app.UseCorrelationId(new CorrelationIdOptions
-            {
-                Header = "x-correlation-id",
-                UseGuidForCorrelationId = true,
-                IncludeInResponse = true,
-                UpdateTraceIdentifier = true
-            });
+            //app.UseCorrelationId();
 
             app.UseRouting();
 
