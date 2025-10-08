@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "4d7f83ca-6937-4bed-bb1a-da4b88bb9908",
+		"name": "Webhook debugger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5824698",
+		"_collection_link": ""
+	},
+	"item": [
+		{
+			"name": "GET Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{https-host}}73c74e33-82c6-411b-a3c9-6cd925a82b17",
+					"host": [
+						"{{https-host}}73c74e33-82c6-411b-a3c9-6cd925a82b17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{https-host}}{{endpoint-guid}}",
+					"host": [
+						"{{https-host}}{{endpoint-guid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{https-host}}{{endpoint-guid}}",
+					"host": [
+						"{{https-host}}{{endpoint-guid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{https-host}}{{endpoint-guid}}",
+					"host": [
+						"{{https-host}}{{endpoint-guid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OPTIONS Request",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "{{https-host}}{{endpoint-guid}}",
+					"host": [
+						"{{https-host}}{{endpoint-guid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

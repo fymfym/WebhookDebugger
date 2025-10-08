@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 		dockerrun = dockerrun
 		LICENSE = LICENSE
 		readme.MD = readme.MD
+		Postman\Admin.postman_collection.json = Postman\Admin.postman_collection.json
+		Postman\WebhookDebugger.postman_collection.json = Postman\WebhookDebugger.postman_collection.json
 	EndProjectSection
 EndProject
 Global
