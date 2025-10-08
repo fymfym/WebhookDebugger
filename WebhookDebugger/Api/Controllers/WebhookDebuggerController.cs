@@ -8,18 +8,12 @@ namespace WebhookDebugger.Api.Controllers
 {
     [ApiController]
     [Route("")]
-    public class WebhookDebuggerController : ControllerBase
+    public class WebhookDebuggerController(
+        ILogger<WebhookDebuggerController> logger,
+        IEndpointService endpointService)
+        : ControllerBase
     {
-        private readonly ILogger<WebhookDebuggerController> _logger;
-        private readonly IEndpointService _endpointService;
-
-        public WebhookDebuggerController(
-            ILogger<WebhookDebuggerController> logger,
-            IEndpointService endpointService)
-        {
-            _logger = logger;
-            _endpointService = endpointService;
-        }
+        private readonly ILogger<WebhookDebuggerController> _logger = logger;
 
         [HttpGet]
         [Route("{identification}")]
@@ -28,6 +22,13 @@ namespace WebhookDebugger.Api.Controllers
             return Handler(identification);
         }
 
+        [HttpHead]
+        [Route("{identification}")]
+        public IActionResult Head(Guid identification)
+        {
+            return Handler(identification);
+        }
+        
         [HttpOptions]
         [Route("{identification}")]
         public IActionResult Options(Guid identification)
@@ -59,9 +60,9 @@ namespace WebhookDebugger.Api.Controllers
 
         private IActionResult Handler(Guid identification)
         {
-            var endpoint = _endpointService.GetEndpoint(identification);
+            var endpoint = endpointService.GetEndpoint(identification);
             if (endpoint == null) return NotFound();
-            _endpointService.AddCall(identification, new Call(HttpContext));
+            endpointService.AddCall(identification, new Call(HttpContext));
             return Ok();
         }
     }
